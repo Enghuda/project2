@@ -1,17 +1,27 @@
 import React from 'react';
+import Placelists from './placelist'
 
 export default class PlaceRow extends React.Component{
     render() {
-             return <div>
-                        <div>
-                        <img width="200" src={this.props.ele.picture} />
-                        </div>
+
+        const allplace = this.props.place.map((ele , id)=>{
+
+       // console.log(ele,id)
+             return <Placelists
+             addplaceToFavorite={this.props.addplaceToFavorite}
+
+             key={id}
+             img={ele.picture}
+             title={ele.nameOfplac}
+             desc={ele.desc}
+             />
+        })
+        return (
                 <div>
-                  {this.props.ele.nameOfplac}
+                {allplace}
+                
                 </div>
-                        <div>
-                        <p>{this.props.ele.desc}</p>
-                        </div>
-              </div>
-        }
+        )
+    }
 }
+
