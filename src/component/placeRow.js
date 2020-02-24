@@ -1,6 +1,6 @@
 import React from 'react';
 import Placelists from './placelist'
-
+//Books
 export default class PlaceRow extends React.Component{
     render() {
 
