@@ -1,27 +1,32 @@
 import React from 'react';
-import Placelists from './placelist'
-//Books
-export default class PlaceRow extends React.Component{
+//import { IoIosHeart } from 'react-icons/fa';
+//import Favorite from './Favorits';
+
+
+
+//
+export default class PlaceRow extends React.Component {
+
+
+    handleDetailsClick(place) {
+        console.log('Fetching details' + " " + this.props.title)
+    }
     render() {
 
-        const allplace = this.props.place.map((ele , id)=>{
+        const picURL = this.props.img;
+        const title = this.props.title;
+        const des = this.props.desc;
 
-       // console.log(ele,id)
-             return <Placelists
-             addplaceToFavorite={this.props.addplaceToFavorite}
-
-             key={id}
-             img={ele.picture}
-             title={ele.nameOfplac}
-             desc={ele.desc}
-             />
-        })
         return (
-                <div>
-                {allplace}
-                
-                </div>
+            <div className="card"
+                onClick={() => this.handleDetailsClick(this.props.place)} >
+                <img className="img" alt="pict" src={picURL}></img>
+                <h4>{title}</h4>
+                <p>{des}</p>
+                <button type="button" className="buttonfav" onClick={() => this.handleFilterClick('faves')}>Favorite<span className="section-count"></span></button>
+
+            </div>
         )
+
     }
 }
-

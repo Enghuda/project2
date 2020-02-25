@@ -1,26 +1,35 @@
-/* import React from 'react';
+import React from 'react';
 
+export default  class Favorite extends React.Component{
 
- const Favorite =(props)=>{
+    constructor(props) {
+    super(props)
 
-    console.log(props.Favorite);
+    this.state = {
+        isFave: false
 
-    const list = props.Favorite.map((ele,index)=>{
-        return <div key={index}>
-           
-
-             img={ele.picture}
-             title={ele.nameOfplac}
-             desc={ele.desc}
-            <button type="button" className="buttonfav" onClick={() => this.props.removeplaceToFavorite()}>Remove</button> 
-
-
-</div>
-    })
-    return(
-        <div>
-            {list}
-        </div>
-    )
+    };
 }
-export default Favorite; */
+
+
+    handleClick= (e) =>{
+        e.stopPropagation()
+        console.log("handling Fave click!")
+        this.setState({ isFave: !this.state.isFave });
+
+    };
+
+
+
+
+    render(){
+        const isFave = this.state.isFave ? "remove_from_queue" : "add_to_queue";
+        const message = this.state.isFave ? "remove_from_queue" : "add_to_queue";
+        return(
+            <div onClick={this.handleClick}
+            className={`film-row-fave ${isFave}`}>
+            <p className="material-icons">{message}</p>
+</div>
+        )
+    }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import DATA from './component/Data';
-import PlaceRow from './component/placeRow';
+import Placelists from './component/Placelists';
 import './App.css';
 import Favorite from './component/Favorits'
 
@@ -12,32 +12,35 @@ export default class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state={
-      place:DATA,
-      favorite:[],
+    this.state = {
+      places: DATA,
+      favorite: [], // [{}]
     }
-    //console.log(this.state.place)
-    this.setState(this.state.place)
+    console.log(this.state.place)
+    // this.setState(this.state.places)
   }
+
+// pass tis function to plac
+//pass item {}as parameter
+//add {} to fav[]
+
   //add to fav
-  addplaceToFavorite = (plc) => {
-    const favorite = [...this.state.favorite,plc];
-  console.log(plc);
-  
-   this.setState({favorite})
-  }
-//for remov fav
-  removeplaceToFavorite= (plc) =>{
+ /*  addPlaceToFavorite = (plc) => {
+  this.setState(  {     favorite : [ {}, {} ]      }    )
+
+  } */
+
+/*   removeplaceToFavorite= (plc) =>{
     const list=[this.state.favorite]
     const index = list.indexOf(plc)
     plc.splice(index,1)
     this.setState({
       favorite:list
     })
-  }
+  } */
   //remov all
   removeAllFave = (plc)=> {
-    const list = [...this.state.favorite]
+    const list = [this.state.favorite]
     const index = list.indexOf(plc)
     list.splice(index, 1)
     this.setState({
@@ -46,16 +49,16 @@ export default class App extends React.Component {
   }
 
 
+
   render() {
 
 
     return (
       <div  >
         <h1 className="titile"> The Strangest Places on Earth</h1>
-{/*         //{this.state.rows}
- */}
-        <PlaceRow className="container" place={this.state.place}/>
-        
+        <button onClick={this.addPlaceToFavorite}>chzange state</button>
+        <Placelists className="container" allPlaces={this.state.places}/>
+         <Placelists className="container" allPlaces={this.state.favorite} /> 
       </div>
     )
   }
