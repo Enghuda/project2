@@ -56,7 +56,7 @@ export default class App extends React.Component {
   getInput = () => {
     axios({
       method: 'get',
-      url: "http://worldtimeapi.org/api/ip/77.240.83.201.txt"
+      url: "http://worldtimeapi.org/api/timezone/Asia/Riyadh"
     })
       .then(res => {
         console.log('RESPONSE: ', res);
