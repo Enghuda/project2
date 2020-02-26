@@ -6,7 +6,7 @@
   font-size: 50px;
   margin:auto;
   background-color: rgb(24, 151, 151);
-  color: aliceblue;
+  color:white;
   padding: 30px;
   border-radius: 10px 10px 10px 10px;
 
@@ -51,11 +51,12 @@ text-align: justify;
   display:flex;
   overflow-x: scroll;
 }
-.buttonfav,.buttonlis{
+.buto{
 font-size: 19px;
   border-radius: 10px 10px 10px 10px;
-  padding: 12px;
+  padding: 17px;
   background-color: rgb(24, 151, 151);
   font-weight: bold;
-color:white
+color:white;
+
 }
