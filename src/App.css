@@ -1,20 +1,16 @@
-.App {
-  text-align: center;
-}
+
 .titile{
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
   margin:auto;
   background-color: rgb(24, 151, 151);
   color:white;
-  padding: 30px;
-  border-radius: 10px 10px 10px 10px;
+  padding: 10px;
 
 
 }
-/* body{
-  background-color:black;
-} */
+
+
 .card{
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -32,12 +28,8 @@ float: left;
   box-shadow: 0 15px 16px 0 rgba(0, 14, 8, 0.2);
 }
 
-.tit{
-  font-size: 20px;
-  margin: auto;
-}
 .prg{
-  font-size: 15px;
+font-size: 15px;
 padding: 20px;
 margin: auto ;
 text-align: justify;
@@ -51,12 +43,43 @@ text-align: justify;
   display:flex;
   overflow-x: scroll;
 }
-.buto{
-font-size: 19px;
-  border-radius: 10px 10px 10px 10px;
-  padding: 17px;
+.input{
+  height: 30px;
+  width: 344px;
+ outline: none;
+}
+.input2{
+  height: 44px;
+  width: 66px;
   background-color: rgb(24, 151, 151);
-  font-weight: bold;
-color:white;
+  cursor: pointer;
+  border-radius: 10px 10px 10px 10px;
+  padding: 15px ;
+  text-align: center;
+color: white;
+border: 0;
 
+}
+.input2:hover {
+  background-color: rgb(26, 107, 107); 
+  color: white;
+}
+.buto{
+
+border-radius: 10px 10px 10px 10px;
+background-color: rgb(24, 151, 151);
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+.buto:hover {
+  background-color: rgb(26, 107, 107); 
+  color: white;
 }

@@ -2,30 +2,22 @@ import React from 'react';
 import DATA from './Component.js/Data';
 import Placelists from './Component.js/Placelists';
 import './App.css';
-import Favorite from './Component.js/Favorits';
-import PlaceRow from './Component.js/PlaceRow';
 import axios from 'axios';
 
-
-
 export default class App extends React.Component {
-
-
-  //events places
   constructor(props) {
     super(props);
     this.state = {
       places: DATA,
-      favorites: [], // [{}]
+      //initial value for favorites
+      favorites: [], 
       axdata:""
     }
     //console.log(this.state.places)
   }
-
-
-
-
+  //make function to handleaddfavorite
   handleAddfavorite = (myPlaces) => {
+    //copy of arry
     const favorites = [...this.state.favorites];
     favorites.push(myPlaces)
 
@@ -34,8 +26,6 @@ export default class App extends React.Component {
     this.setState({ favorites })
 
   }
-
-  //ha
   handleClearAll = () => {
     let favorites = [...this.state.favorites]
     favorites = []
@@ -53,18 +43,25 @@ export default class App extends React.Component {
     this.setState({ favorites }) //call cha
 
   }
-  getInput = () => {
+  additm=(pl)=>{
+    let items = this.state.places;
+    items.push(pl);
+    this.setState({places:items})
+
+  }
+  getday() {
     axios({
       method: 'get',
-      url: "http://worldtimeapi.org/api/timezone/Asia/Riyadh"
+      // "http://worldtimeapi.org/api/timezone/Asia/Riyadh"
+      url: "http://worldclockapi.com/api/json/est/now"
     })
       .then(res => {
-        console.log('RESPONSE: ', res);
-        // console.log('DATA: ', res.data.datetime);
-        // this.setState({
-        //   axdata: res.data.datetime
-        // })
-      })
+        console.log('RESPONSE: ', res.data.dayOfTheWeek);
+        this.setState({
+          axdata: res.data.dayOfTheWeek
+        })
+      }
+      )
       .catch(err => {
         console.log('ERROR: ', err);
       });
@@ -75,15 +72,17 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <h1 className="titile"> The Strangest Places on Earth</h1>
-        <button onClick={this.getInput}>plase clik</button>
-        <h1>{this.state.axdata}</h1>
+
+        <header className="titile"> The Strangest Places on Earth
+        <h6 className = "titile">{this.state.axdata}</h6></header> 
+        <button className="buto" onClick={() => this.getday()}>what is today's</button>     
         <Placelists myPlaces={this.state.places}
           fav={this.state.favorites}
           Addfav={this.handleAddfavorite}
           clear={this.handleClearAll}
           clearitem={this.handleClearItem}
-        />
+           add={this.additm}/>
+  
 
 
       </div>

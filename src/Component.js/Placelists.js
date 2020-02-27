@@ -7,7 +7,9 @@ export default class Placelists extends React.Component {
         super(props)
 
         this.state = {
-            filter: "all"
+            filter: "all",
+            input: ""
+
 
         };
     }
@@ -24,7 +26,17 @@ export default class Placelists extends React.Component {
         this.props.clearitem()
 
     }
-
+    handleChange = (e) => {
+        //console.log(e.target.value)
+        this.setState({
+            input: e.target.value
+        })
+    }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        //console.log(this.state.input)
+        this.props.add(this.state)
+    }
 
     render() {
 
@@ -36,8 +48,8 @@ export default class Placelists extends React.Component {
                     img={ele.picturepath}
                     title={ele.nameOfplac}
                     desc={ele.desc}
-                    Addfav={() => this.props.Addfav(ele)} 
-                    />
+                    Addfav={() => this.props.Addfav(ele)}
+                />
             </div>
         })
         const allfa = this.props.fav.map((ele, id) => {
@@ -48,29 +60,30 @@ export default class Placelists extends React.Component {
                     img={ele.picturepath}
                     title={ele.nameOfplac}
                     desc={ele.desc}
-                    Addfav={() => this.props.Addfav(ele)} 
-                    clearitem={() =>this.props.clearitem(ele)}/>
+                    Addfav={() => this.props.Addfav(ele)}
+                    clearitem={() => this.props.clearitem(ele)} />
             </div>
         })
 
-        let city;
+        let fav;
         if (this.state.filter === 'myfav') {
-            city = allfa;
+            fav = allfa;
         } else {
-            city = allplace;
+            fav = allplace;
         }
         return (
-
-            <div >
-                <div className="buto"> 
+            <div>
+                
                 <button className="buto" onClick={() => this.handleFilterClick('All')}>All places</button>
                 <button className="buto" onClick={() => this.handleFilterClick('myfav')}>My Favorits</button>
                 <button className="buto" onClick={() => this.handleDeletallClick()} >Clear All</button>
-{/*                 <button className="buto" onClick={() => this.handleDeletallClickitem()} >Clear</button>
- */}
-                    </div>
-
-                {city}
+                <div >
+                       <form onSubmit={this.handleSubmit}>
+                        <input className="input" type="text" placeholder="what would you like ? " onChange={this.handleChange} />
+                        <input className="input2" type="submit" value="Add" />
+                    </form>
+                </div>
+                {fav}
             </div>
         )
     }
