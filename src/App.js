@@ -21,7 +21,7 @@ export default class App extends React.Component {
     const favorites = [...this.state.favorites];
     favorites.push(myPlaces)
 
-    console.log(`add${myPlaces.nameOfplac}`);
+  //  console.log(`add${myPlaces.nameOfplac}`);
 
     this.setState({ favorites })
 
@@ -29,7 +29,7 @@ export default class App extends React.Component {
   handleClearAll = () => {
     let favorites = [...this.state.favorites]
     favorites = []
-    console.log(`all remov`)
+  //  console.log(`all remov`)
     this.setState({ favorites })
 
   }
@@ -38,7 +38,7 @@ export default class App extends React.Component {
     //favorites.pop(myPlaces);
     const index = favorites.indexOf(ele)
     favorites.splice(index,1)
-    console.log(`REmov $ {myPlaces.nameOfplac} `);
+    //console.log(`REmov $ {myPlaces.nameOfplac} `);
 
     this.setState({ favorites }) //call cha
 
@@ -75,8 +75,8 @@ export default class App extends React.Component {
 
         <header className="titile"> The Strangest Places on Earth
         <h6 className = "titile">{this.state.axdata}</h6></header> 
-        <button className="buto" onClick={() => this.getday()}>what is today's</button>     
-        <Placelists myPlaces={this.state.places}
+{/*         <button className="buto" onClick={() => this.getday()}>what is today's</button>     
+ */}        <Placelists myPlaces={this.state.places}
           fav={this.state.favorites}
           Addfav={this.handleAddfavorite}
           clear={this.handleClearAll}

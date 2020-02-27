@@ -5,7 +5,6 @@ A React.js application that display the strangest places in the world.
 ### Technologies used :
 . React
 . java-script
-. XML
 . Css
 ### User Stories:
 . As a user i want to add new place to my list.
@@ -14,5 +13,5 @@ A React.js application that display the strangest places in the world.
 . As a user, I should be able to delete all
 . As a user, i should be able to click on button to see all my favorites.
 ### Wireframes:
-! [wireframes](photo.PNG)
+![wireframes](/photo.PNG)
 
