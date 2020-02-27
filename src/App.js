@@ -75,8 +75,8 @@ export default class App extends React.Component {
 
         <header className="titile"> The Strangest Places on Earth
         <h6 className = "titile">{this.state.axdata}</h6></header> 
-{/*          <button className="buto" onClick={() => this.getday()}>what is today's</button>     
- */}      <Placelists myPlaces={this.state.places}
+         <button className="buto" onClick={() => this.getday()}>what is today's</button>     
+      <Placelists myPlaces={this.state.places}
           fav={this.state.favorites}
           Addfav={this.handleAddfavorite}
           clear={this.handleClearAll}

@@ -14,5 +14,3 @@
 - As a user, i should be able to click on button to see all my favorites.
 ### Wireframes:
 ![wireframes](/photo.PNG)
-###
-
